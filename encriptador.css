@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
+
 :root{
     --url-img: url(img/Enigma.jpg);
     --gradient: linear-gradient(135deg, #667eea 0%, #744ba27c 100%);
@@ -25,16 +27,19 @@ body{
 
 .nav{
     position: fixed;
+    display: flex;
     top: 0;
     width: 100%;
     height: 70px;
     background: rgb(116, 30, 187);
-    text-align: right;
+    align-items: center;
+    justify-content: space-between;
 }
 
-
 h1{
-    text-align: center;
+    margin-left: 1rem;
+    font: 18px;
+    color: #fff;
 }
 
 .enlaces{
@@ -43,6 +48,7 @@ h1{
     line-height: 70px;
     padding: 0 20px;
     display: inline-block;
+    margin-left: 2px;
 }
 
 .encriptador{
@@ -73,6 +79,7 @@ h1{
     min-height: 400px;
     max-height: 400px;
     padding: 20px 10px;
+    font: inherit;
 }
 
 .encriptador__botones{
@@ -83,4 +90,20 @@ h1{
     font-size: 18px;
     color: #fff;
     border: none;
+}
+
+@media screen and (max-width:800px){
+    .encriptador{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:675px){
+    .nav{
+        flex-direction: column;
+    }
+
+    .encriptador{
+        width: 90%;
+    }
 }
