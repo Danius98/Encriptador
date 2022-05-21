@@ -9,6 +9,7 @@
     --radius: 8px;
     --box-shadow: 6px 6px 10px rgba(0,0,0,.6);
     --gradient: linear-gradient(135deg, #667eea86 0%, #764ba2 100%);
+    --svg: url(img/Undraw.svg);
 }
 
 *{
@@ -23,6 +24,7 @@ body{
     background-size: cover;
     background-position: center;
     overflow: hidden;
+    font-family: 'Lato', sans-serif;
 }
 
 .nav{
@@ -51,6 +53,11 @@ h1{
     margin-left: 2px;
 }
 
+.enlaces:hover{
+    background: #fff;
+    color: purple;
+}
+
 .encriptador{
     /*position: relative;*/
     display: grid;
@@ -62,6 +69,7 @@ h1{
     padding: 30px 20px 40px 20px;
     border-radius: var(--radius);
     box-shadow: var(--box-shadow);
+    font: inherit;
 }
 
 .encriptador__mensaje{
@@ -80,6 +88,12 @@ h1{
     max-height: 400px;
     padding: 20px 10px;
     font: inherit;
+    text-align: left;
+}
+
+#encriptado{
+    background-image: var(--svg);
+    background-size: cover;
 }
 
 .encriptador__botones{
@@ -90,6 +104,7 @@ h1{
     font-size: 18px;
     color: #fff;
     border: none;
+    font: inherit;
 }
 
 @media screen and (max-width:800px){
@@ -105,5 +120,28 @@ h1{
 
     .encriptador{
         width: 90%;
+    }
+
+    .enlaces{
+        transform: translateY(-5px);
+    }
+
+    .enlaces:hover{
+        color: lightblue;
+        background: none;
+    }
+}
+
+@media screen and (max-width:600px){
+    .encriptador{
+        padding: 15px 10px 20px 10px;
+    }
+
+    .encriptador__mensaje{
+        flex-direction: column;
+    }
+
+    .encriptador__texto{
+        min-height: 180px;
     }
 }

@@ -19,15 +19,16 @@
     </nav>
     <form class="encriptador">
         <div class="encriptador__mensaje">
-            <textarea class="encriptador__texto"placeholder="Ingrese su frase sin codificar">
+            <textarea class="encriptador__texto" id="normal" placeholder="Ingrese su frase sin codificar">
             </textarea>
-            <button class="encriptador__botones">Encripte</button>
+            <button type="button" class="encriptador__botones" id="encriptar" onclick="crypt()">Encripte</button>
         </div>
         <div class="encriptador__mensaje">
-            <textarea class="encriptador__texto" placeholder="Ingrese su frase sin codificar">
+            <textarea class="encriptador__texto" id="encriptado" placeholder="Ingrese su frase sin codificar">
             </textarea>
-            <button class="encriptador__botones">Desencripte</button>
+            <button type="button" class="encriptador__botones" id= "desencriptar">Desencripte</button>
         </div> 
     </form>
+    <script src="encriptador.js"></script>
 </body>
 </html>
