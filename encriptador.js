@@ -1,6 +1,8 @@
-const textoNormal = document.getElementById('normal');
-const textoCodificado = document.getElementById('encriptado');
+const textoNormal = document.getElementById('normal')
+const textoCodificado = document.getElementById('encriptado')
 const encryptBtn = document.getElementById('encriptar');
+const encryptCopyBtn = document.getElementById('copiar__normal');
+const dencryptCopyBtn = document.getElementById('copiar__encriptado');
 const dencryptBtn = document.getElementById('desencriptar');
 
 //me busca globalmente las letras en el texto
@@ -34,23 +36,48 @@ function multiReplace(strings, regex, replaces) {
   }
 
 function crypt(){
-  var codificado = textoNormal.value.toLowerCase();
-  var codificar = multiReplace(codificado, encriptar, encriptado);
+  var texto = textoNormal.value.toLowerCase();
+  var codificar = multiReplace(texto, encriptar, encriptado);
   //alert(codificar)
-  textoCodificado.innerHTML = codificar;
+  textoCodificado.value = codificar;
+  //console.log(textoCodificado.innerHTML);
+  alert(textoCodificado.value)
   textoNormal.value = "";
-  textoCodificado.style.background = "none"
-  }
+  //textoNormal.style.background = "show"
+  //textoCodificado.style.background = "none";
+  //alert("Texto codificado");
+  //encryptCopyBtn.style.display = "show";
+  //encryptCopyBtn.style.display = "inherit";
+}
 
-/*if(textoCodificado.value.length > 10){
-  textoCodificado.style.background = "none"
-}*/
+function dencrypt(){
+  var codificado = textoCodificado.value.toLowerCase();
+  var descodificar = multiReplace(codificado, desencriptar, desencriptado);
+  //alert(descodificar)
+  textoNormal.value = descodificar;
+  alert(textoNormal.value)
+  console.log(textoNormal);
+  textoCodificado.value = "";
+  //textoCodificado.style.background = "none";
+  alert("Texto codificado")
+}
 
-/*encryptBtn.addEventListener('click', () => {
-  if(textoNormal.value.length){
-    textoCodificado.innerHTML = multiReplace(frase, encriptar, encriptado);
-    return textoCodificado;
+function copiaNormal(){
+  if(textoNormal.value == ""){
+    alert('Ingresa texto antes de copiar')
   } else {
-    alert("Ingresa texto para codificar")
+    textoNormal.select();
+    document.execCommand('copy');
+    alert('Texto copiado');
   }
-})*/
+}
+
+function copiaEncriptado(){
+  if(textoCodificado.value == ""){
+    alert('No hay texto codificado que copiar')
+  } else {
+    textoCodificado.select();
+    document.execCommand('copy');
+    alert('Texto codificado copiado');
+  }
+}

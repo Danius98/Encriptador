@@ -9,7 +9,8 @@
     --radius: 8px;
     --box-shadow: 6px 6px 10px rgba(0,0,0,.6);
     --gradient: linear-gradient(135deg, #667eea86 0%, #764ba2 100%);
-    --svg: url(img/Undraw.svg);
+    --svg1: url(img/undraw_normal.svg);
+    --svg2: url(img/undraw_crypted.svg);
 }
 
 *{
@@ -66,7 +67,7 @@ h1{
     height: 500px;
     background: #fff;
     margin: 90px auto 0;
-    padding: 30px 20px 40px 20px;
+    padding: 20px;
     border-radius: var(--radius);
     box-shadow: var(--box-shadow);
     font: inherit;
@@ -88,15 +89,33 @@ h1{
     max-height: 400px;
     padding: 20px 10px;
     font: inherit;
-    text-align: left;
+    float: left;
+}
+
+#normal{
+    background: var(--svg1);
 }
 
 #encriptado{
-    background-image: var(--svg);
+    background: var(--svg2);
+}
+
+#normal, #encriptado{
     background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 400px;
+}
+
+#normal:focus, #encriptado:focus{
+    background: none;
 }
 
 .encriptador__botones{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+}
+
+.encriptador__botones--copiar{
     margin-top: 12px;
     height: 30px;
     cursor: pointer;
@@ -105,6 +124,25 @@ h1{
     color: #fff;
     border: none;
     font: inherit;
+}
+
+.encriptador--botones{
+    margin-top: 12px;
+    height: 30px;
+    cursor: pointer;
+    background: var(--gradient);
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    font: inherit;
+}
+
+#copiar__normal, #copiar__encriptado{
+    margin-right: 10px;
+}
+
+#encriptar, #desencriptar{
+    margin-left: 10px;
 }
 
 @media screen and (max-width:800px){
@@ -116,6 +154,10 @@ h1{
 @media screen and (max-width:675px){
     .nav{
         flex-direction: column;
+    }
+
+    h1{
+        margin: 0
     }
 
     .encriptador{
@@ -139,6 +181,22 @@ h1{
 
     .encriptador__mensaje{
         flex-direction: column;
+    }
+}
+
+@media screen and (max-width:577px){
+    .encriptador{
+        padding: 15px 10px 20px 10px;
+    }
+
+    .encriptador__mensaje{
+        flex-direction: column;
+    }
+
+    #normal, #encriptado{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-size: 100% 180px;
     }
 
     .encriptador__texto{
